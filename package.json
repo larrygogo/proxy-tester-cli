@@ -1,0 +1,38 @@
+{
+  "name": "proxy-tester-cli",
+  "version": "0.0.1",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "convert": "babel src -d .cache",
+    "build": "npm run convert && rm -rf package && pkg ."
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "http-proxy-agent": "^7.0.2",
+    "https-proxy-agent": "^7.0.5",
+    "is-valid-domain": "^0.1.6",
+    "loading-cli": "^1.1.2",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.25.6",
+    "@babel/preset-env": "^7.25.4",
+    "@types/node": "^22.5.4"
+  },
+  "bin": ".cache/index.js",
+  "pkg": {
+    "assets": [
+      "node_modules/**/*"
+    ],
+    "targets": [
+      "latest-macos-arm64",
+      "latest-win-x64"
+    ],
+    "outputPath": "package"
+  }
+}
